@@ -9,7 +9,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
-public class Main {
+public class Lab1 {
     public static void main(String[] args) {
         var students = readStudents();
         Institute institute = new Institute(students);

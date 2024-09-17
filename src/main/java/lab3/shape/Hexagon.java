@@ -1,8 +1,10 @@
 package lab3.shape;
 
+import java.util.ArrayList;
+
 class Hexagon extends Shape {
 
-    Hexagon(Point[] points) {
+    Hexagon(ArrayList<Point> points) {
         n = 6;
         super.points = points;
         id = 'H';
@@ -11,30 +13,29 @@ class Hexagon extends Shape {
     @Override
     public void info() {
         System.out.println("Hexagon");
-        System.out.println("Points:");
-        for (int i = 0; i < n; i++) {
-            System.out.println(points[i].x + "," + points[i].y);
-        }
+        super.printPoints();
     }
 
     @Override
     public float getArea() {
-        float square = points[5].x * points[0].y;
-        for (int i = 0; i < n-1; i++) {
-            square += points[i].x * points[i+1].y;
+        float square = 0f;
+        for (int i = 0; i < n; i++) {
+            var nextI = (i+1) % n;
+            square += points.get(i).x * points.get(nextI).y;
         }
-        return square;
+        return Math.abs(square);
     }
 
     @Override
     public Point getCenter() {
         float xSum = 0;
         float ySum = 0;
-        for (int i = 0; i < n; i++) {
-            xSum += points[i].x;
-            ySum += points[i].y;
+
+        for (Point point: points) {
+            xSum += point.x;
+            ySum += point.y;
         }
 
-        return new Point(xSum / 6, ySum / 6);
+        return new Point(xSum / n, ySum / n);
     }
 }

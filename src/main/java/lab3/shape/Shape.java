@@ -1,9 +1,10 @@
 package lab3.shape;
 
+import java.util.List;
 import java.util.Scanner;
 
 public abstract class Shape {
-    Point[] points;
+    List<Point> points;
     char id;
     int n;
     public Scanner in = new Scanner(System.in);
@@ -11,7 +12,7 @@ public abstract class Shape {
 
     public abstract float getArea();
 
-    public Point[] getPoints() {
+    public List<Point> getPoints() {
         return points;
     }
 
@@ -21,43 +22,34 @@ public abstract class Shape {
         return n;
     }
 
+    protected void printPoints() {
+        System.out.println("Points:");
+        points.forEach(point -> System.out.println(point.x + "," + point.y));
+    }
+
     public void move(MoveDirectional direct, float distance) {
         switch (direct) {
-
             case UP -> {
-                for (int i = 0; i < n; i++) {
-                    points[i].y += distance;
-                }
+                points.forEach(point -> {point.y += distance;});
             }
             case RIGHT -> {
-                for (int i = 0; i < n; i++) {
-                    points[i].x += distance;
-                }
+                points.forEach(point -> {point.x += distance;});
             }
             case DOWN -> {
-                for (int i = 0; i < n; i++) {
-                    points[i].y -= distance;
-                }
+                points.forEach(point -> {point.y -= distance;});
             }
             case LEFT -> {
-                for (int i = 0; i < n; i++) {
-                    points[i].x -= distance;
-                }
+                points.forEach(point -> {point.x -= distance;});
+
             }
         }
     }
 
-
     public void rotate() {
-
         Point center = getCenter();
-        for (int i = 0; i < n; i++) {
-            points[i] = rotatePoint90DegAroundCenter(points[i], center);
-        }
-
+        points = points.stream().map(point -> rotatePoint90DegClockwiseAroundCenter(point, center)).toList();
     }
-
-    private Point rotatePoint90DegAroundCenter(Point point, Point center) {
+    private Point rotatePoint90DegClockwiseAroundCenter(Point point, Point center) {
         // Переносим точку в начало координат относительно центра
         float xShifted = point.x - center.x;
         float yShifted = point.y - center.y;

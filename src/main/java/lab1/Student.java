@@ -1,11 +1,5 @@
 package lab1;
-
 import java.util.SplittableRandom;
-
-enum StudentState {
-    STUDY,
-    EXPELLED
-}
 
 public class Student {
     private final String firstName;

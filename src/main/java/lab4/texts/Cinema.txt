@@ -1,0 +1,20 @@
+Inception, 120, 100, 15.00, 14:30
+Interstellar, 150, 140, 17.50, 17:45
+The Dark Knight, 100, 98, 12.00, 19:15
+Tenet, 80, 65, 18.00, 16:00
+Dunkirk, 200, 180, 14.50, 20:30
+Avatar, 180, 175, 16.00, 13:15
+Avengers: Endgame, 220, 210, 20.00, 15:00
+Parasite, 90, 88, 12.50, 18:45
+Joker, 110, 108, 13.50, 21:00
+Spider-Man: No Way Home, 160, 155, 16.50, 14:00
+The Matrix, 130, 120, 14.00, 16:30
+Gladiator, 100, 95, 12.00, 19:45
+The Lion King, 140, 135, 13.00, 15:45
+Toy Story 4, 120, 110, 10.00, 13:00
+Frozen II, 180, 170, 11.50, 17:00
+Mad Max: Fury Road, 150, 145, 15.50, 19:30
+Blade Runner 2049, 100, 90, 13.00, 20:15
+La La Land, 90, 85, 14.00, 21:15
+Star Wars: The Force Awakens, 200, 190, 19.00, 12:45
+The Lord of the Rings: The Fellowship of the Ring, 180, 175, 18.50, 16:15

@@ -16,8 +16,7 @@ public class CinemaContainer implements IContainer {
     @Override
     public void displayContainer() {
         cinemas.entrySet().forEach(cinema -> {
-            System.out.println("Key - " + cinema.getKey());
-            System.out.println("Value - " + cinema.toString() );
+            System.out.println(cinema.toString() );
         });
     }
 
@@ -44,10 +43,19 @@ public class CinemaContainer implements IContainer {
 
     @Override
     public void search(String query) {
-        //TODO use try catch
-        var cinema = cinemas.get(query);
-        var percent = ((float)cinema.getVisitorCount() / (float)cinema.getSeatsCount()) * 100;
-        System.out.println(percent + " %");
+        var keysByRequest = cinemas.keySet().stream().filter(key -> key.toLowerCase().contains(query.toLowerCase())).toList();
+
+        if (keysByRequest.isEmpty()) {
+            System.out.println("No one cinema's name contain such query");
+        }
+
+        keysByRequest.forEach(key -> {
+            var cinema = cinemas.get(key);
+            var percent = ((float)cinema.getVisitorCount() / (float)cinema.getSeatsCount()) * 100;
+            System.out.println(cinema.getName() + " - " + percent + "%");
+        });
+
+
     }
 
 

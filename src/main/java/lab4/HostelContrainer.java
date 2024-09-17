@@ -43,7 +43,13 @@ public class HostelContrainer implements IContainer {
     @Override
     public void search(String query) {
         // TODO use try catch
-        int year = Integer.parseInt(query);
+        int year;
+        try {
+            year = Integer.parseInt(query);
+        } catch ( NumberFormatException e) {
+            System.out.println(e.toString());
+            return;
+        }
 
         hostels.stream().filter(hostel -> {
             return hostel.getLivingEnd().getYear() == year;

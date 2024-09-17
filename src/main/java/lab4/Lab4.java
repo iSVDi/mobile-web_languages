@@ -8,7 +8,6 @@ public class Lab4 {
         var hostel = new HostelContrainer();
         var cinema = new CinemaContainer();
 
-
         try {
             cinema.readData();
             hostel.readData();
@@ -16,8 +15,18 @@ public class Lab4 {
             throw new RuntimeException(e);
         }
 
-//        hostel.search("2023");
-        cinema.search("asdasdad");
+        System.out.println("----------------CINEMA CONTAINER----------------");
+        cinema.displayContainer();
+        System.out.println("----------------HOSTEL CONTAINER----------------");
+        hostel.displayContainer();
+
+        System.out.println("----------------CINEMA SEARCH----------------");
+        cinema.search("The");
+        System.out.println("----------------HOSTEL SEARCH----------------");
+        hostel.search("2023");
+
+
+
     }
 
 }
